@@ -1,0 +1,145 @@
+@font-face {
+  font-family: "Chaney Wide";
+  src: url("assets/fonts/chaney-wide.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Chaney Ultraextended";
+  src: url("assets/fonts/chaney-ultraextended.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Gotham Thin";
+  src: url("assets/fonts/gotham-thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: block;
+}
+
+:root {
+  --ink: #fbf5f8;
+  --soft-ink: rgba(251, 245, 248, 0.78);
+  --border: clamp(1.75rem, 6vmin, 5.5rem);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 50% 48%, rgba(255, 246, 250, 0.94) 0 8%, rgba(255, 246, 250, 0.18) 19%, transparent 34%),
+    radial-gradient(circle at 13% 14%, rgba(126, 188, 226, 0.95), transparent 34%),
+    radial-gradient(circle at 86% 17%, rgba(90, 205, 211, 0.85), transparent 32%),
+    radial-gradient(circle at 12% 61%, rgba(165, 119, 220, 0.9), transparent 34%),
+    radial-gradient(circle at 88% 73%, rgba(0, 137, 193, 0.9), transparent 38%),
+    linear-gradient(145deg, #5b8bd1 0%, #a184da 46%, #0084c0 100%);
+  font-family: "Gotham Thin", Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+.stage {
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  place-items: center;
+  padding: var(--border);
+  text-align: center;
+}
+
+.logo {
+  grid-row: 2;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: min(100%, 118vh);
+  color: var(--ink);
+  text-decoration: none;
+  text-transform: uppercase;
+  line-height: 0.77;
+  filter: drop-shadow(0 0.12em 0.22em rgba(35, 39, 82, 0.1));
+  transition: transform 220ms ease, filter 220ms ease;
+}
+
+.logo:hover,
+.logo:focus-visible {
+  transform: scale(1.018);
+  filter: drop-shadow(0 0.14em 0.3em rgba(35, 39, 82, 0.17));
+}
+
+.logo:focus-visible {
+  outline: 0.08em solid rgba(251, 245, 248, 0.8);
+  outline-offset: 0.12em;
+}
+
+.given-name {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  font-size: clamp(5.7rem, 26.5vw, 28rem);
+  letter-spacing: -0.065em;
+  white-space: nowrap;
+}
+
+.neo-start {
+  font-family: "Chaney Wide", Impact, sans-serif;
+}
+
+.neo-end {
+  font-family: "Chaney Ultraextended", Impact, sans-serif;
+  margin-left: -0.045em;
+}
+
+.family-name {
+  display: block;
+  width: 100%;
+  margin-top: 0.18em;
+  padding-left: 0.14em;
+  font-family: "Gotham Thin", Arial, Helvetica, sans-serif;
+  font-size: clamp(1.5rem, 6.25vw, 6.7rem);
+  font-weight: 100;
+  letter-spacing: 0.42em;
+  line-height: 1;
+  transform: scaleX(1.045);
+  transform-origin: center;
+  white-space: nowrap;
+}
+
+.copyright {
+  position: fixed;
+  left: var(--border);
+  right: var(--border);
+  bottom: clamp(1rem, 3.2vmin, 2.25rem);
+  margin: 0;
+  color: var(--soft-ink);
+  font-family: "Gotham Thin", Arial, Helvetica, sans-serif;
+  font-size: clamp(0.76rem, 1.4vmin, 1rem);
+  font-weight: 100;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 560px) {
+  .given-name {
+    font-size: clamp(4.8rem, 28vw, 9rem);
+  }
+
+  .family-name {
+    font-size: clamp(1.28rem, 6.6vw, 2.15rem);
+    letter-spacing: 0.38em;
+    padding-left: 0.12em;
+  }
+}
