@@ -90,7 +90,7 @@ body {
   align-items: baseline;
   justify-content: center;
   font-size: clamp(5.7rem, 26.5vw, 28rem);
-  letter-spacing: -0.065em;
+  letter-spacing: -0.018em;
   white-space: nowrap;
 }
 
@@ -100,20 +100,20 @@ body {
 
 .neo-end {
   font-family: "Chaney Ultraextended", Impact, sans-serif;
-  margin-left: -0.045em;
+  margin-left: -0.012em;
 }
 
 .family-name {
   display: block;
   width: 100%;
-  margin-top: 0.18em;
-  padding-left: 0.14em;
+  margin-top: 0.14em;
+  padding-left: 0.34em;
   font-family: "Gotham Thin", Arial, Helvetica, sans-serif;
-  font-size: clamp(1.5rem, 6.25vw, 6.7rem);
+  font-size: clamp(1.9rem, 7.9vw, 8.35rem);
   font-weight: 100;
-  letter-spacing: 0.42em;
+  letter-spacing: 0.62em;
   line-height: 1;
-  transform: scaleX(1.045);
+  transform: scaleX(1.08);
   transform-origin: center;
   white-space: nowrap;
 }
@@ -138,8 +138,8 @@ body {
   }
 
   .family-name {
-    font-size: clamp(1.28rem, 6.6vw, 2.15rem);
-    letter-spacing: 0.38em;
-    padding-left: 0.12em;
+    font-size: clamp(1.65rem, 8.4vw, 2.9rem);
+    letter-spacing: 0.54em;
+    padding-left: 0.3em;
   }
 }
