@@ -34,6 +34,13 @@
   --ink: #fbf5f8;
   --soft-ink: rgba(251, 245, 248, 0.78);
   --border: clamp(1.75rem, 6vmin, 5.5rem);
+  --page-background:
+    radial-gradient(circle at 50% 48%, rgba(255, 246, 250, 0.94) 0 8%, rgba(255, 246, 250, 0.18) 19%, transparent 34%),
+    radial-gradient(circle at 13% 14%, rgba(126, 188, 226, 0.95), transparent 34%),
+    radial-gradient(circle at 86% 17%, rgba(90, 205, 211, 0.85), transparent 32%),
+    radial-gradient(circle at 12% 61%, rgba(165, 119, 220, 0.9), transparent 34%),
+    radial-gradient(circle at 88% 73%, rgba(0, 137, 193, 0.9), transparent 38%),
+    linear-gradient(145deg, #5b8bd1 0%, #a184da 46%, #0084c0 100%);
 }
 
 * {
@@ -43,28 +50,31 @@
 html,
 body {
   min-height: 100%;
+  background: var(--page-background);
+}
+
+html {
+  background-attachment: fixed;
 }
 
 body {
   margin: 0;
   color: var(--ink);
-  background:
-    radial-gradient(circle at 50% 48%, rgba(255, 246, 250, 0.94) 0 8%, rgba(255, 246, 250, 0.18) 19%, transparent 34%),
-    radial-gradient(circle at 13% 14%, rgba(126, 188, 226, 0.95), transparent 34%),
-    radial-gradient(circle at 86% 17%, rgba(90, 205, 211, 0.85), transparent 32%),
-    radial-gradient(circle at 12% 61%, rgba(165, 119, 220, 0.9), transparent 34%),
-    radial-gradient(circle at 88% 73%, rgba(0, 137, 193, 0.9), transparent 38%),
-    linear-gradient(145deg, #5b8bd1 0%, #a184da 46%, #0084c0 100%);
   font-family: "Gotham Thin", Arial, Helvetica, sans-serif;
   overflow: hidden;
 }
 
 .stage {
   min-height: 100svh;
+  min-height: 100dvh;
   display: grid;
   grid-template-rows: 1fr auto 1fr;
   place-items: center;
-  padding: var(--border);
+  padding:
+    calc(var(--border) + env(safe-area-inset-top))
+    calc(var(--border) + env(safe-area-inset-right))
+    calc(var(--border) + env(safe-area-inset-bottom))
+    calc(var(--border) + env(safe-area-inset-left));
   text-align: center;
 }
 
@@ -128,9 +138,9 @@ body {
 
 .copyright {
   position: fixed;
-  left: var(--border);
-  right: var(--border);
-  bottom: clamp(1rem, 3.2vmin, 2.25rem);
+  left: calc(var(--border) + env(safe-area-inset-left));
+  right: calc(var(--border) + env(safe-area-inset-right));
+  bottom: calc(clamp(1rem, 3.2vmin, 2.25rem) + env(safe-area-inset-bottom));
   margin: 0;
   color: var(--soft-ink);
   font-family: "Gotham Thin", Arial, Helvetica, sans-serif;
