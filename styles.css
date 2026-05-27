@@ -7,6 +7,14 @@
 }
 
 @font-face {
+  font-family: "Chaney Extended";
+  src: url("assets/fonts/chaney-extended.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
   font-family: "Chaney Ultraextended";
   src: url("assets/fonts/chaney-ultraextended.woff2") format("woff2");
   font-weight: 400;
@@ -95,7 +103,7 @@ body {
 }
 
 .neo-start {
-  font-family: "Chaney Wide", Impact, sans-serif;
+  font-family: "Chaney Extended", Impact, sans-serif;
 }
 
 .neo-end {
