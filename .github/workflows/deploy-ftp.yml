@@ -15,6 +15,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Prepare FTP upload folder
+        run: |
+          mkdir -p publish/neobellee
+          rsync -av \
+            --exclude='.git*' \
+            --exclude='.github' \
+            --exclude='README.md' \
+            --exclude='publish' \
+            ./ publish/neobellee/
+
       - name: Deploy to FTP server
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -22,10 +32,6 @@ jobs:
           username: ftp1094792-smb
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
-          server-dir: /www/neobellee/
-          local-dir: ./
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.github/**
-            README.md
+          server-dir: /www/
+          local-dir: ./publish/
+          state-name: .ftp-deploy-sync-state-neobellee.json
